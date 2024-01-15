@@ -5288,11 +5288,17 @@
   ++  qib  (bass 2 (stun [4 4] sib))
   ++  qix  (bass 16 (stun [4 4] six))
   ++  seb  (cold 1 (just '1'))
+  ::
+  ++  sec  (cook |=(a=@ (sub a '0')) (shim '1' '7'))
+  ::
   ++  sed  (cook |=(a=@ (sub a '0')) (shim '1' '9'))
   ++  sev  ;~(pose sed sov)
   ++  sew  ;~(pose sed sow)
   ++  sex  ;~(pose sed sox)
   ++  sib  (cook |=(a=@ (sub a '0')) (shim '0' '1'))
+  ::
+  ++  sic  (cook |=(a=@ (sub a '0')) (shim '0' '7'))
+  ::
   ++  sid  (cook |=(a=@ (sub a '0')) (shim '0' '9'))
   ++  siv  ;~(pose sid sov)
   ++  siw  ;~(pose sid sow)
@@ -5338,6 +5344,7 @@
   ++  bip  =+  tod=(ape qex:ab)
            (bass 0x1.0000 ;~(plug tod (stun [7 7] ;~(pfix dog tod))))
   ++  dem  (ape (bass 1.000 ;~(plug ted:ab (star ;~(pfix dog tid:ab)))))
+  ++  dic  %-  ape  (bass 8 ;~(plug sec:ab (star sic:ab)))
   ++  dim  (ape dip)
   ++  dip  (bass 10 ;~(plug sed:ab (star sid:ab)))
   ++  dum  (bass 10 (plus sid:ab))
@@ -5502,6 +5509,7 @@
           ?+  hay  [~ ((ox-co [10 3] |=(a=@ ~(d ne a))) q.p.lot)]
             %b  [['0' 'b' ~] ((ox-co [2 4] |=(a=@ ~(d ne a))) q.p.lot)]
             %i  [['0' 'i' ~] ((d-co 1) q.p.lot)]
+            %o  [['0' 'o' ~] ((ox-co [8 3] |=(a=@ ~(x ne a))) q.p.lot)]
             %x  [['0' 'x' ~] ((ox-co [16 4] |=(a=@ ~(x ne a))) q.p.lot)]
             %v  [['0' 'v' ~] ((ox-co [32 5] |=(a=@ ~(x ne a))) q.p.lot)]
             %w  [['0' 'w' ~] ((ox-co [64 5] |=(a=@ ~(w ne a))) q.p.lot)]
@@ -5663,6 +5671,9 @@
           (stag %ub ;~(pfix (just 'b') bay:ag))
           (stag %uc ;~(pfix (just 'c') fim:ag))
           (stag %ui ;~(pfix (just 'i') dim:ag))
+          ::
+          (stag %uo ;~(pfix (just 'o') dic:ag))
+          ::
           (stag %ux ;~(pfix (just 'x') hex:ag))
           (stag %uv ;~(pfix (just 'v') viz:ag))
           (stag %uw ;~(pfix (just 'w') wiz:ag))
