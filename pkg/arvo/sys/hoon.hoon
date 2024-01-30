@@ -6433,9 +6433,6 @@
     [%clkt p=hoon q=hoon r=hoon s=hoon]                 ::  :^ [p q r s]
     [%clhp p=hoon q=hoon]                               ::  :- [p q]
     [%clls p=hoon q=hoon r=hoon]                        ::  :+ [p q r]
-    :: custom
-    [%clgr p=hoon q=hoon r=hoon]
-    ::
     [%clsg p=(list hoon)]                               ::  :~ [p ~]
     [%cltr p=(list hoon)]                               ::  :* p as a tuple
   ::                                            ::::::  invocations
@@ -6448,6 +6445,7 @@
     [%cnls p=hoon q=hoon r=hoon]                        ::  %+
     [%cnsg p=wing q=hoon r=(list hoon)]                 ::  %~
     [%cnts p=wing q=(list (pair wing hoon))]            ::  %=
+    [%cngr p=hoon q=(list hoon)]                        ::  %>
   ::                                            ::::::  nock
     [%dtkt p=spec q=hoon]                               ::  .^  nock 11
     [%dtls p=hoon]                                      ::  .+  nock 4
@@ -8443,9 +8441,6 @@
     ::
         [%clkt *]  [p.gen q.gen r.gen s.gen]
         [%clls *]  [p.gen q.gen r.gen]
-        ::  custom
-        [%clgr *]  [p.gen r.gen q.gen]
-        ::
         [%clcb *]  [q.gen p.gen]
         [%clhp *]  [p.gen q.gen]
         [%clsg *]
@@ -8493,6 +8488,11 @@
       :+  %cnts
         (weld p.gen `wing`[[%& 2] ~])
       (turn r.gen |=([p=wing q=hoon] [p [%tsgr [%$ 3] q]]))
+    ::
+        [%cngr *]
+      |-  ^-  hoon
+      ?~  q.gen  p.gen
+      $(p.gen [%cnhp i.q.gen p.gen], q.gen t.q.gen)
     ::
         [%ktdt *]  [%ktls [%cncl p.gen q.gen ~] q.gen]
         [%kthp *]  [%ktls ~(example ax p.gen) q.gen]
@@ -13251,6 +13251,7 @@
                   ['~' (rune sig %cnsg expn)]
                   ['*' (rune tar %cntr expm)]
                   ['=' (rune tis %cnts exph)]
+                  ['>' (rune gar %cngr expi)]
               ==
             ==
           :-  ':'
@@ -13260,9 +13261,6 @@
               :~  ['_' (rune cab %clcb expb)]
                   ['^' (rune ket %clkt expd)]
                   ['+' (rune lus %clls expc)]
-                  ::  custom
-                  ['>' (rune lus %clgr expc)]
-                  ::
                   ['-' (rune hep %clhp expb)]
                   ['~' (rune sig %clsg exps)]
                   ['*' (rune tar %cltr exps)]
